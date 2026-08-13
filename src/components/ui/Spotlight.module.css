@@ -1,0 +1,38 @@
+.spotlight {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  top: -40%;
+  left: -5%;
+  width: 138%;
+  height: 169%;
+  opacity: 0;
+  animation: spotlight 2s ease 0.75s 1 forwards;
+}
+
+@media (min-width: 768px) {
+  .spotlight {
+    top: -20%;
+    left: 15%;
+    width: 84%;
+  }
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight {
+    animation: none;
+    opacity: 0.85;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}

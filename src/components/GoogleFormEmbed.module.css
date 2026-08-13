@@ -1,0 +1,38 @@
+.section {
+  border-top: 1px solid var(--color-line);
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 80%, rgba(230, 0, 0, 0.1), transparent 70%),
+    var(--color-bg);
+}
+
+.panel {
+  max-width: 36rem;
+  margin-inline: auto;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+}
+
+.panel .section__title {
+  margin: 0;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-lg);
+  line-height: 1.5;
+}
+
+.cta {
+  min-width: min(100%, 16rem);
+}
+
+@media (max-width: 768px) {
+  .cta {
+    width: 100%;
+    min-width: 0;
+    min-height: 3rem;
+  }
+}

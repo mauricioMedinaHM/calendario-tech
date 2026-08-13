@@ -1,0 +1,18 @@
+.root {
+  display: block;
+}
+
+.word {
+  display: inline-block;
+  will-change: filter, opacity, transform;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    filter: none !important;
+  }
+}

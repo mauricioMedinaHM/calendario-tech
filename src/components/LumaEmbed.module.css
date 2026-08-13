@@ -1,0 +1,83 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(230, 0, 0, 0.07), transparent 70%),
+    var(--color-bg);
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+  -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 94%,
+      transparent 100%
+    ),
+    linear-gradient(to right, transparent 0%, #000 1.5%, #000 98.5%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 94%,
+      transparent 100%
+    ),
+    linear-gradient(to right, transparent 0%, #000 1.5%, #000 98.5%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  min-height: 36rem;
+  height: clamp(36rem, 70vh, 48rem);
+}
+
+.veil {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom, transparent 0%, transparent 96%, var(--color-bg) 100%),
+    linear-gradient(to right, var(--color-bg) 0%, transparent 2%, transparent 98%, var(--color-bg) 100%);
+}
+
+.actions {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-5);
+}
+
+.lead {
+  max-width: 36rem;
+}
+
+.mobilePanel {
+  display: grid;
+  justify-items: stretch;
+  gap: var(--space-4);
+}
+
+.mobileCta {
+  width: 100%;
+  min-height: 3rem;
+}
+
+@media (max-width: 768px) {
+  .section :global(.section__title),
+  .lead {
+    text-align: center;
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    filter: none !important;
+  }
+}

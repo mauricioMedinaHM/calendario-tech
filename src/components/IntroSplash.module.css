@@ -1,0 +1,22 @@
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: #000;
+  pointer-events: none;
+}
+
+.flyer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  margin: 0;
+  padding: 0;
+  display: block;
+  object-fit: contain;
+  transform-origin: 0 0;
+  will-change: transform;
+  pointer-events: none;
+  backface-visibility: hidden;
+}

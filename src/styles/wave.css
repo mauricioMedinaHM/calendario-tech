@@ -1,0 +1,124 @@
+.wave-atmosphere {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wave-atmosphere__glow {
+  position: absolute;
+  inset: 10% 5%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(230, 0, 0, 0.28) 0%,
+    rgba(230, 0, 0, 0.08) 42%,
+    transparent 72%
+  );
+  filter: blur(28px);
+}
+
+.wave-atmosphere--hero {
+  inset: 12% -4% auto auto;
+  width: min(62vw, 40rem);
+  height: min(78vh, 34rem);
+  opacity: 0.65;
+  mask-image: linear-gradient(to left, #000 20%, transparent 92%),
+    linear-gradient(#000 55%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to left, #000 20%, transparent 92%),
+    linear-gradient(#000 55%, transparent 100%);
+  -webkit-mask-composite: source-in;
+}
+
+.wave-atmosphere--footer {
+  inset: 15% 0 -5% 0;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    #000 12%,
+    #000 72%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    #000 12%,
+    #000 72%,
+    transparent 100%
+  );
+}
+
+.wave-atmosphere--footer .wave-atmosphere__glow {
+  inset: 5% 0 -10%;
+  filter: blur(42px);
+  background: radial-gradient(
+    ellipse 90% 70% at 50% 85%,
+    rgba(230, 0, 0, 0.55) 0%,
+    rgba(230, 0, 0, 0.2) 40%,
+    transparent 72%
+  );
+}
+
+.wave-atmosphere__layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.wave-atmosphere--footer .wave-atmosphere__layer {
+  align-items: flex-end;
+  gap: 0.22rem;
+  padding-inline: 1%;
+  height: 100%;
+}
+
+.wave-atmosphere__layer span {
+  flex: 1;
+  align-self: center;
+  border-radius: 999px;
+  min-width: 2px;
+}
+
+.wave-atmosphere--footer .wave-atmosphere__layer span {
+  align-self: flex-end;
+  min-width: 3px;
+}
+
+.wave-atmosphere__layer--deep span {
+  background: var(--color-accent-deep);
+  opacity: 0.55;
+}
+
+.wave-atmosphere__layer--front span {
+  background: var(--color-accent);
+}
+
+.wave-atmosphere--footer .wave-atmosphere__layer--deep span {
+  opacity: 0.85;
+  filter: blur(2px);
+}
+
+.wave-atmosphere--footer .wave-atmosphere__layer--front span {
+  filter: none;
+  opacity: 0.95;
+  box-shadow: 0 0 18px rgba(230, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .wave-atmosphere--hero {
+    width: 100%;
+    height: 42vh;
+    opacity: 0.35;
+    inset: auto 0 0 0;
+  }
+
+  .wave-atmosphere--footer {
+    inset: 25% 0 -5% 0;
+    opacity: 0.9;
+  }
+}

@@ -1,0 +1,33 @@
+.logo {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav {
+  width: auto;
+  height: 3.15rem;
+}
+
+.hero {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.splash {
+  width: 100%;
+}
+
+.footer {
+  width: clamp(8rem, 20vw, 11rem);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    height: 2.25rem;
+  }
+
+  .footer {
+    width: 9rem;
+  }
+}
