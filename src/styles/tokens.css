@@ -221,6 +221,10 @@ button {
     --dock-h: calc(3.85rem + env(safe-area-inset-bottom, 0px));
   }
 
+  html[data-page='qr'] {
+    --dock-h: 0px;
+  }
+
   html {
     scroll-padding-top: 0.5rem;
     scroll-padding-bottom: var(--dock-h);

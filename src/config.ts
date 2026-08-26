@@ -1,3 +1,8 @@
+export const SITE_URL =
+  import.meta.env.VITE_SITE_URL ?? 'https://calendario-tech.vercel.app'
+
+export const QR_PAGE_URL = `${SITE_URL.replace(/\/$/, '')}/qr`
+
 export const LUMA_CALENDAR_URL =
   import.meta.env.VITE_LUMA_CALENDAR_URL ??
   'https://luma.com/calendario-mendoza-tech'
