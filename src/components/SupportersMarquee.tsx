@@ -38,6 +38,18 @@ export const SUPPORT_BRANDS = [
     src: '/brands/polotic.png',
     href: 'https://poloticmendoza.org/',
   },
+  {
+    id: 'agencia-mendoza',
+    name: 'Agencia de Innovación y Gobierno de Mendoza',
+    src: '/brands/agencia-mendoza.png',
+    href: 'https://competitividadmendoza.com.ar/agencia-innovacion/',
+  },
+  {
+    id: 'mendoza-ciudad',
+    name: 'Mendoza Ciudad',
+    src: '/brands/mendoza-ciudad.png',
+    href: 'https://ciudaddemendoza.gob.ar/',
+  },
 ] as const
 
 function BrandSlot({
