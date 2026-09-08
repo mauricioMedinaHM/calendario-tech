@@ -19,6 +19,28 @@ function isFinder(row: number, col: number, size: number) {
   )
 }
 
+function roundedRectPath(
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number,
+) {
+  const rr = Math.min(r, w / 2, h / 2)
+  return [
+    `M${x + rr} ${y}`,
+    `h${w - 2 * rr}`,
+    `a${rr} ${rr} 0 0 1 ${rr} ${rr}`,
+    `v${h - 2 * rr}`,
+    `a${rr} ${rr} 0 0 1 ${-rr} ${rr}`,
+    `h${-(w - 2 * rr)}`,
+    `a${rr} ${rr} 0 0 1 ${-rr} ${-rr}`,
+    `v${-(h - 2 * rr)}`,
+    `a${rr} ${rr} 0 0 1 ${rr} ${-rr}`,
+    'z',
+  ].join('')
+}
+
 export function BrandedQr({
   value,
   label = 'Código QR de calendario tech',
@@ -66,12 +88,11 @@ export function BrandedQr({
     >
       <title>{label}</title>
       {modules.map((cell) => (
-        <rect
+        <circle
           key={`${cell.x}-${cell.y}`}
-          x={cell.x}
-          y={cell.y}
-          width={1.02}
-          height={1.02}
+          cx={cell.x + 0.5}
+          cy={cell.y + 0.5}
+          r={0.42}
           fill={MODULE}
         />
       ))}
@@ -81,17 +102,19 @@ export function BrandedQr({
           <path
             fill={MODULE}
             fillRule="evenodd"
-            d={`M${x} ${y}h7v7h-7zM${x + 1} ${y + 1}h5v5h-5z`}
+            d={`${roundedRectPath(x, y, 7, 7, 2.15)}${roundedRectPath(x + 1.05, y + 1.05, 4.9, 4.9, 1.45)}`}
           />
-          <rect x={x + 2} y={y + 2} width={3} height={3} fill={ACCENT} />
+          <circle cx={x + 3.5} cy={y + 3.5} r={1.42} fill={ACCENT} />
         </g>
       ))}
 
       <rect
-        x={quiet + holeX0 - 0.35}
-        y={quiet + holeY0 - 0.35}
-        width={holeW + 0.7}
-        height={holeH + 0.7}
+        x={quiet + holeX0 - 0.45}
+        y={quiet + holeY0 - 0.45}
+        width={holeW + 0.9}
+        height={holeH + 0.9}
+        rx={holeH * 0.48}
+        ry={holeH * 0.48}
         fill="#000"
       />
 

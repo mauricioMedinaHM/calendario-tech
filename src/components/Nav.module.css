@@ -6,7 +6,7 @@
   z-index: 40;
   display: flex;
   justify-content: center;
-  padding-inline: 0.85rem;
+  padding-inline: var(--page-gutter);
   pointer-events: none;
 }
 
@@ -80,6 +80,10 @@
   display: none;
 }
 
+.dockQrOpen {
+  z-index: 80;
+}
+
 @media (max-width: 768px) {
   .header {
     display: none;
@@ -91,39 +95,86 @@
     right: 0;
     bottom: 0;
     z-index: 40;
+    display: block;
+    padding-top: 2.1rem;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    overflow: visible;
+    background: transparent;
+  }
+
+  .dockBar {
+    position: relative;
+    background: var(--color-bg);
+  }
+
+  .dockBump {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 1;
+    width: 5.25rem;
+    height: 2.35rem;
+    transform: translate(-50%, -99%);
+    background: var(--color-bg);
+    border: 0;
+    border-radius: 5.25rem 5.25rem 0 0;
+  }
+
+  .dockItems {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    background: var(--color-bg);
-    border-top: 1px solid var(--color-line);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    align-items: stretch;
+    min-height: 3.35rem;
+    padding: 1.45rem 0.35rem 0.4rem;
   }
 
   .dockLink {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1.65rem 0.9rem;
     align-items: center;
-    justify-content: center;
-    gap: 0.2rem;
-    min-height: 3.35rem;
-    padding: 0.45rem 0.35rem 0.4rem;
+    justify-items: center;
+    min-width: 0;
+    min-height: 2.7rem;
+    padding: 0.1rem 0.2rem;
+    border: 0;
+    background: transparent;
     color: var(--color-muted);
     text-decoration: none;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    cursor: pointer;
     touch-action: manipulation;
   }
 
-  .dockLink :global(svg) {
+  .dockIcon {
+    display: grid;
+    place-items: center;
+    width: 1.65rem;
+    height: 1.65rem;
+  }
+
+  .dockIcon :global(svg) {
     width: 22px;
     height: 22px;
     color: var(--color-accent);
   }
 
+  .dockLabel {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
   .dockLink:active {
     color: var(--color-fg);
-    background: rgba(255, 255, 255, 0.04);
   }
 
   .dockLink:focus-visible {

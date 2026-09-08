@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { LUMA_CALENDAR_URL, LUMA_EMBED_URL } from '../config'
 import { useBrandChrome } from '../hooks/brandChrome'
+import { IconExternal } from './icons/Icons'
 import styles from './LumaEmbed.module.css'
 
 function withDarkTheme(url: string) {
@@ -31,9 +32,20 @@ export function LumaEmbed() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2 id="eventos-title" className="section__title">
-            Próximos eventos
-          </h2>
+          <div className={styles.heading}>
+            <h2 id="eventos-title" className={`section__title ${styles.title}`}>
+              Próximos eventos
+            </h2>
+            <a
+              className={styles.lumaLink}
+              href={LUMA_CALENDAR_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Abrir calendario en Luma"
+            >
+              <IconExternal />
+            </a>
+          </div>
           <p className={`section__lead ${styles.lead}`}>
             {narrow
               ? 'Todo vive en Luma. Abrí el calendario para ver fechas, lugares y confirmar tu asistencia.'
@@ -75,17 +87,6 @@ export function LumaEmbed() {
                   allow="fullscreen"
                 />
               </motion.div>
-
-              <div className={`embed-actions ${styles.actions}`}>
-                <a
-                  className="btn btn--ghost"
-                  href={LUMA_CALENDAR_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Abrir en Luma
-                </a>
-              </div>
             </>
           )}
         </motion.div>

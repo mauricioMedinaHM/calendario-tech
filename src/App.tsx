@@ -11,7 +11,6 @@ import { BrandChromeProvider } from './hooks/brandChrome'
 import { IntroSplash } from './components/IntroSplash'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
-import { SupportersMarquee } from './components/SupportersMarquee'
 import { ValueStrip } from './components/ValueStrip'
 import { LumaEmbed } from './components/LumaEmbed'
 import { Community } from './components/Community'
@@ -26,7 +25,6 @@ function App() {
         <Nav />
         <main>
           <Hero />
-          <SupportersMarquee />
           <ValueStrip />
           <LumaEmbed />
           <Community />

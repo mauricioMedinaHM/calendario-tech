@@ -25,7 +25,8 @@
   --text-xl: clamp(1.5rem, 1.15rem + 1.4vw, 2.35rem);
   --text-display: clamp(1.85rem, 1.2rem + 2.6vw, 3.4rem);
 
-  --max-w: 72rem;
+  --page-gutter: 0.75rem;
+  --max-w: 64rem;
   --nav-h: 4.25rem;
   --dock-h: 0px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -115,7 +116,7 @@ button {
 }
 
 .container {
-  width: min(100% - 2rem, var(--max-w));
+  width: min(100% - 2 * var(--page-gutter), var(--max-w));
   margin-inline: auto;
 }
 
@@ -216,9 +217,15 @@ button {
   margin-top: var(--space-4);
 }
 
+@media (min-width: 769px) {
+  :root {
+    --page-gutter: clamp(2rem, 7vw, 5.5rem);
+  }
+}
+
 @media (max-width: 768px) {
   :root {
-    --dock-h: calc(3.85rem + env(safe-area-inset-bottom, 0px));
+    --dock-h: calc(6.15rem + env(safe-area-inset-bottom, 0px));
   }
 
   html[data-page='qr'] {
@@ -232,10 +239,6 @@ button {
 
   body {
     padding-bottom: var(--dock-h);
-  }
-
-  .container {
-    width: min(100% - 1.5rem, var(--max-w));
   }
 
   .section {

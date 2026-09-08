@@ -1,5 +1,4 @@
 .section {
-  border-top: 1px solid var(--color-line);
   background:
     radial-gradient(ellipse 60% 45% at 50% 80%, rgba(230, 0, 0, 0.1), transparent 70%),
     var(--color-bg);

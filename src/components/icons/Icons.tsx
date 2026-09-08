@@ -61,6 +61,36 @@ export function IconShare({ className, title }: IconProps) {
   )
 }
 
+export function IconQr({ className, title }: IconProps) {
+  return (
+    <svg {...base} className={className} role={title ? 'img' : undefined}>
+      {title ? <title>{title}</title> : null}
+      <rect x="3" y="3" width="6" height="6" rx="1" />
+      <rect x="15" y="3" width="6" height="6" rx="1" />
+      <rect x="3" y="15" width="6" height="6" rx="1" />
+      <path d="M21 16h-3a2 2 0 0 0-2 2v3" />
+      <path d="M21 21v.01" />
+      <path d="M12 7v3a2 2 0 0 1-2 2H7" />
+      <path d="M3 12h.01" />
+      <path d="M12 3h.01" />
+      <path d="M12 16v.01" />
+      <path d="M16 12h1" />
+      <path d="M21 12v.01" />
+      <path d="M12 21v-1" />
+    </svg>
+  )
+}
+
+export function IconClose({ className, title }: IconProps) {
+  return (
+    <svg {...base} className={className} role={title ? 'img' : undefined}>
+      {title ? <title>{title}</title> : null}
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  )
+}
+
 export function IconFilter({ className, title }: IconProps) {
   return (
     <svg {...base} className={className} role={title ? 'img' : undefined}>
@@ -68,6 +98,17 @@ export function IconFilter({ className, title }: IconProps) {
       <path d="M4 6h16" />
       <path d="M7 12h10" />
       <path d="M10 18h4" />
+    </svg>
+  )
+}
+
+export function IconExternal({ className, title }: IconProps) {
+  return (
+    <svg {...base} className={className} role={title ? 'img' : undefined}>
+      {title ? <title>{title}</title> : null}
+      <path d="M15 3h6v6" />
+      <path d="M10 14 21 3" />
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
     </svg>
   )
 }

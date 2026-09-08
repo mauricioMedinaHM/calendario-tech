@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react'
 import { Logo } from './brand/Logo'
 import { Spotlight } from './ui/Spotlight'
 import { BlurText } from './ui/BlurText'
+import { SupportersMarquee } from './SupportersMarquee'
 import { useBrandChrome } from '../hooks/brandChrome'
 import styles from './Hero.module.css'
 
@@ -58,14 +59,22 @@ export function Hero() {
           }
           transition={{ duration: 0.35, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <a className="btn btn--primary" href="#eventos">
-            Ver eventos
-          </a>
-          <a className="btn btn--ghost" href="#sumar">
+          <a className="btn btn--primary" href="#sumar">
             Sumá tu evento
           </a>
         </motion.div>
       </div>
+
+      <motion.div
+        className={styles.supporters}
+        initial={reduce ? false : { opacity: 0, y: 16 }}
+        animate={
+          showCopy ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }
+        }
+        transition={{ duration: 0.5, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <SupportersMarquee active={showCopy} />
+      </motion.div>
     </section>
   )
 }

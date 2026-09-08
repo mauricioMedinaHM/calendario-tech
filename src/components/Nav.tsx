@@ -1,11 +1,9 @@
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Logo } from './brand/Logo'
+import { QrShareButton, QrShareDialog } from './QrShare'
 import { useBrandChrome } from '../hooks/brandChrome'
-import {
-  IconCalendar,
-  IconCommunity,
-  IconShare,
-} from './icons/Icons'
+import { IconCalendar, IconCommunity, IconShare } from './icons/Icons'
 import styles from './Nav.module.css'
 
 const links = [
@@ -21,8 +19,26 @@ const dockLinks = [
 ]
 
 export function Nav() {
-  const reduce = useReducedMotion()
+  const reduce = useReducedMotion() ?? false
   const { compact, narrow } = useBrandChrome()
+  const [qrOpen, setQrOpen] = useState(false)
+  const fabRef = useRef<HTMLButtonElement>(null)
+  const wasQrOpen = useRef(false)
+
+  const openQr = useCallback(() => setQrOpen(true), [])
+  const closeQr = useCallback(() => setQrOpen(false), [])
+
+  useEffect(() => {
+    if (!narrow) setQrOpen(false)
+  }, [narrow])
+
+  useEffect(() => {
+    if (qrOpen) {
+      wasQrOpen.current = true
+      return
+    }
+    if (wasQrOpen.current) fabRef.current?.focus()
+  }, [qrOpen])
 
   return (
     <>
@@ -77,14 +93,39 @@ export function Nav() {
       </AnimatePresence>
 
       {narrow ? (
-        <nav className={styles.dock} aria-label="Principal">
-          {dockLinks.map(({ href, label, Icon }) => (
-            <a key={href} href={href} className={styles.dockLink}>
-              <Icon />
-              <span>{label}</span>
-            </a>
-          ))}
-        </nav>
+        <>
+          <nav
+            className={`${styles.dock}${qrOpen ? ` ${styles.dockQrOpen}` : ''}`}
+            aria-label="Principal"
+            aria-hidden={qrOpen || undefined}
+          >
+            <div className={styles.dockBar}>
+              <div className={styles.dockBump} aria-hidden="true" />
+              <div className={styles.dockItems}>
+                {dockLinks.map(({ href, label, Icon }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className={styles.dockLink}
+                    tabIndex={qrOpen ? -1 : undefined}
+                  >
+                    <span className={styles.dockIcon}>
+                      <Icon />
+                    </span>
+                    <span className={styles.dockLabel}>{label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <QrShareButton
+              open={qrOpen}
+              reduce={reduce}
+              buttonRef={fabRef}
+              onOpen={openQr}
+            />
+          </nav>
+          <QrShareDialog open={qrOpen} reduce={reduce} onClose={closeQr} />
+        </>
       ) : null}
     </>
   )
