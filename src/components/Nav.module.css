@@ -96,7 +96,10 @@
     bottom: 0;
     z-index: 40;
     display: block;
-    padding-top: 2.1rem;
+    --fab-size: 3.5rem;
+    --fab-gap: 0.5rem;
+    --bump-size: calc(var(--fab-size) + var(--fab-gap) * 2);
+    padding-top: calc(var(--fab-size) / 2 + 0.35rem);
     padding-bottom: env(safe-area-inset-bottom, 0px);
     overflow: visible;
     background: transparent;
@@ -112,12 +115,13 @@
     left: 50%;
     top: 0;
     z-index: 1;
-    width: 5.25rem;
-    height: 2.35rem;
-    transform: translate(-50%, -99%);
-    background: var(--color-bg);
+    width: var(--bump-size);
+    height: var(--bump-size);
+    pointer-events: none;
     border: 0;
-    border-radius: 5.25rem 5.25rem 0 0;
+    border-radius: 50%;
+    background: var(--color-bg);
+    transform: translate(-50%, calc((var(--fab-size) - var(--bump-size)) / 2));
   }
 
   .dockItems {

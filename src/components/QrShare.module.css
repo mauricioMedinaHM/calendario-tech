@@ -3,10 +3,12 @@
   left: 50%;
   top: 0;
   z-index: 3;
-  width: 3.5rem;
-  height: 3.5rem;
-  margin-left: -1.75rem;
-  border: 1px solid transparent;
+  width: var(--fab-size, 3.5rem);
+  height: var(--fab-size, 3.5rem);
+  margin-left: calc(var(--fab-size, 3.5rem) / -2);
+  padding: 0;
+  aspect-ratio: 1;
+  border: 0;
   border-radius: 50%;
   background: var(--color-accent);
   color: var(--color-fg);
@@ -68,11 +70,17 @@
 
 .stageWrap {
   position: relative;
+  width: min(18rem, calc(100vw - 3rem));
+  overflow: hidden;
   pointer-events: auto;
 }
 
 .qrStage {
-  width: min(100%, 18rem);
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
   padding: 0.85rem;
   border: 1px solid var(--color-line);
   border-radius: 1.75rem;

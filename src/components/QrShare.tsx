@@ -113,7 +113,6 @@ export function QrShareDialog({ open, reduce, onClose }: QrShareDialogProps) {
                   label="Código QR hacia el inicio de calendario tech"
                 />
               </div>
-              <span className="sr-only">{HOME_URL}</span>
             </div>
           </motion.div>
         </>

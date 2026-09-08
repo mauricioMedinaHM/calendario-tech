@@ -11,7 +11,6 @@ import { BrandChromeProvider } from './hooks/brandChrome'
 import { IntroSplash } from './components/IntroSplash'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
-import { ValueStrip } from './components/ValueStrip'
 import { LumaEmbed } from './components/LumaEmbed'
 import { Community } from './components/Community'
 import { GoogleFormEmbed } from './components/GoogleFormEmbed'
@@ -25,7 +24,6 @@ function App() {
         <Nav />
         <main>
           <Hero />
-          <ValueStrip />
           <LumaEmbed />
           <Community />
           <GoogleFormEmbed />

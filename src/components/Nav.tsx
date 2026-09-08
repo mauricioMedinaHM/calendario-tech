@@ -100,7 +100,6 @@ export function Nav() {
             aria-hidden={qrOpen || undefined}
           >
             <div className={styles.dockBar}>
-              <div className={styles.dockBump} aria-hidden="true" />
               <div className={styles.dockItems}>
                 {dockLinks.map(({ href, label, Icon }) => (
                   <a
@@ -117,6 +116,7 @@ export function Nav() {
                 ))}
               </div>
             </div>
+            <div className={styles.dockBump} aria-hidden="true" />
             <QrShareButton
               open={qrOpen}
               reduce={reduce}
