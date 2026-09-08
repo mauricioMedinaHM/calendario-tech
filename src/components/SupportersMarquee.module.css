@@ -62,14 +62,14 @@
 }
 
 .slot[data-brand='cuyoconnect'] .logo,
-.slot[data-brand='quienvino'] .logo,
 .slot[data-brand='polotic'] .logo {
   max-height: 2.85rem;
 }
 
 .slot[data-brand='embarca'] .logo,
-.slot[data-brand='lodo'] .logo {
-  max-width: 7.5rem;
+.slot[data-brand='lodo'] .logo,
+.slot[data-brand='quienvino'] .logo {
+  max-width: 8.25rem;
   max-height: 2rem;
 }
 
