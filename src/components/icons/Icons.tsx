@@ -81,16 +81,6 @@ export function IconQr({ className, title }: IconProps) {
   )
 }
 
-export function IconClose({ className, title }: IconProps) {
-  return (
-    <svg {...base} className={className} role={title ? 'img' : undefined}>
-      {title ? <title>{title}</title> : null}
-      <path d="M18 6 6 18" />
-      <path d="m6 6 12 12" />
-    </svg>
-  )
-}
-
 export function IconFilter({ className, title }: IconProps) {
   return (
     <svg {...base} className={className} role={title ? 'img' : undefined}>

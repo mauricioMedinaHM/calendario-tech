@@ -36,15 +36,17 @@ export function LumaEmbed() {
             <h2 id="eventos-title" className={`section__title ${styles.title}`}>
               Próximos eventos
             </h2>
-            <a
-              className={styles.lumaLink}
-              href={LUMA_CALENDAR_URL}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Abrir calendario en Luma"
-            >
-              <IconExternal />
-            </a>
+            {narrow ? null : (
+              <a
+                className={styles.lumaLink}
+                href={LUMA_CALENDAR_URL}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Abrir calendario en Luma"
+              >
+                <IconExternal />
+              </a>
+            )}
           </div>
           <p className={`section__lead ${styles.lead}`}>
             {narrow

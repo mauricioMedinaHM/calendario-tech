@@ -29,6 +29,17 @@
 }
 
 @media (max-width: 768px) {
+  .panel {
+    gap: var(--space-4);
+  }
+
+  .lead {
+    max-width: 34ch;
+    font-size: 1rem;
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
   .cta {
     width: 100%;
     min-width: 0;

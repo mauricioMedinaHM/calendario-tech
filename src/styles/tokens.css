@@ -225,7 +225,8 @@ button {
 
 @media (max-width: 768px) {
   :root {
-    --dock-h: calc(6.15rem + env(safe-area-inset-bottom, 0px));
+    --page-gutter: 1.25rem;
+    --dock-h: calc(7.3rem + env(safe-area-inset-bottom, 0px));
   }
 
   html[data-page='qr'] {
@@ -242,18 +243,26 @@ button {
   }
 
   .section {
-    padding-block: var(--space-7);
+    padding-block: var(--space-6);
     scroll-margin-top: 0.5rem;
   }
 
-  .section__title,
-  .section__lead {
+  .section__title {
+    max-width: 18rem;
+    margin-inline: auto;
+    margin-bottom: var(--space-3);
+    font-size: clamp(1.4rem, 6vw, 1.7rem);
     text-wrap: balance;
   }
 
   .section__lead {
+    max-width: 34ch;
     margin-inline: auto;
+    margin-bottom: var(--space-5);
+    font-size: 1rem;
+    line-height: 1.45;
     text-align: center;
+    text-wrap: pretty;
   }
 
   .btn {

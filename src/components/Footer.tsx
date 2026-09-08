@@ -2,12 +2,6 @@ import { Logo } from './brand/Logo'
 import { LUMA_CALENDAR_URL } from '../config'
 import styles from './Footer.module.css'
 
-const links = [
-  { href: '#eventos', label: 'Eventos' },
-  { href: '#comunidad', label: 'Comunidad' },
-  { href: '#sumar', label: 'Sumá tu evento' },
-]
-
 export function Footer() {
   return (
     <footer className={styles.footer}>
@@ -21,15 +15,6 @@ export function Footer() {
         >
           <Logo size="footer" />
         </a>
-        <nav aria-label="Pie de página">
-          <ul className={styles.list}>
-            {links.map((link) => (
-              <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </div>
 
       <div className={`container ${styles.bottom}`}>
