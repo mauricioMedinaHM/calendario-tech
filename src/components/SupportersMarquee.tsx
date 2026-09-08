@@ -1,10 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useReducedMotion,
-} from 'motion/react'
+import { useReducedMotion } from 'motion/react'
+import { Marquee } from './ui/Marquee'
 import styles from './SupportersMarquee.module.css'
 
 const SUPPORT_BRANDS = [
@@ -58,127 +53,66 @@ const SUPPORT_BRANDS = [
   },
 ] as const
 
-type Brand = (typeof SUPPORT_BRANDS)[number]
-
-const LOGO_SETS: Brand[][] = [
-  SUPPORT_BRANDS.slice(0, 4),
-  SUPPORT_BRANDS.slice(4),
-]
-
-const FLIP = {
-  duration: 0.9,
-  ease: [0.22, 1, 0.36, 1] as const,
-}
-
 function BrandSlot({
-  brand,
-  index,
-  animate,
+  id,
+  name,
+  src,
+  href,
 }: {
-  brand: Brand
-  index: number
-  animate: boolean
+  id: string
+  name: string
+  src: string
+  href: string
 }) {
   return (
-    <motion.a
+    <a
       className={styles.slot}
-      data-brand={brand.id}
-      href={brand.href}
+      data-brand={id}
+      href={href}
       target="_blank"
       rel="noreferrer"
-      initial={
-        animate
-          ? { y: 36, opacity: 0, filter: 'blur(12px)' }
-          : false
-      }
-      animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-      exit={
-        animate
-          ? { y: -36, opacity: 0, filter: 'blur(12px)' }
-          : undefined
-      }
-      transition={{
-        duration: FLIP.duration,
-        delay: animate ? 0.1 * index : 0,
-        ease: FLIP.ease,
-      }}
     >
-      <img src={brand.src} alt={brand.name} className={styles.logo} />
-    </motion.a>
+      <img src={src} alt={name} className={styles.logo} />
+    </a>
+  )
+}
+
+function BrandRow() {
+  return (
+    <>
+      {SUPPORT_BRANDS.map((brand) => (
+        <BrandSlot
+          key={brand.id}
+          id={brand.id}
+          name={brand.name}
+          src={brand.src}
+          href={brand.href}
+        />
+      ))}
+    </>
   )
 }
 
 export function SupportersMarquee({ active = true }: { active?: boolean }) {
   const reduce = useReducedMotion()
-  const bandRef = useRef<HTMLElement>(null)
-  const inView = useInView(bandRef, { amount: 0.35 })
-  const [setIndex, setSetIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const [hidden, setHidden] = useState(
-    () => typeof document !== 'undefined' && document.hidden,
-  )
-  const currentSet = LOGO_SETS[setIndex]
-  const live = active && !reduce && inView && !paused && !hidden
-
-  useEffect(() => {
-    const onVisibility = () => setHidden(document.hidden)
-    document.addEventListener('visibilitychange', onVisibility)
-    return () => document.removeEventListener('visibilitychange', onVisibility)
-  }, [])
-
-  useEffect(() => {
-    if (!live) return
-
-    const id = window.setInterval(() => {
-      setSetIndex((index) => (index + 1) % LOGO_SETS.length)
-    }, 3800)
-
-    return () => window.clearInterval(id)
-  }, [live])
 
   return (
-    <aside
-      ref={bandRef}
-      className={styles.band}
-      aria-labelledby="bancan-title"
-    >
-      <div className="container">
-        <div className={styles.head}>
-          <h2 id="bancan-title" className={styles.title}>
-            Impulsados por
-          </h2>
-        </div>
-
-        {reduce ? (
-          <div className={styles.staticGrid}>
-            {SUPPORT_BRANDS.map((brand, index) => (
-              <BrandSlot
-                key={brand.id}
-                brand={brand}
-                index={index}
-                animate={false}
-              />
-            ))}
-          </div>
-        ) : (
-          <div
-            className={styles.cloud}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <AnimatePresence mode="popLayout">
-              {currentSet.map((brand, index) => (
-                <BrandSlot
-                  key={brand.id}
-                  brand={brand}
-                  index={index}
-                  animate={active}
-                />
-              ))}
-            </AnimatePresence>
-          </div>
-        )}
+    <aside className={styles.band} aria-labelledby="bancan-title">
+      <div className={styles.head}>
+        <h2 id="bancan-title" className="eyebrow">
+          Impulsados por
+        </h2>
       </div>
+
+      {reduce || !active ? (
+        <div className={styles.staticGrid}>
+          <BrandRow />
+        </div>
+      ) : (
+        <Marquee pauseOnHover repeat={3} durationSec={28} className={styles.loop}>
+          <BrandRow />
+        </Marquee>
+      )}
     </aside>
   )
 }

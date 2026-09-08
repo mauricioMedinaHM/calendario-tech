@@ -39,18 +39,6 @@ export function IconCommunity({ className, title }: IconProps) {
   )
 }
 
-export function IconBell({ className, title }: IconProps) {
-  return (
-    <svg {...base} className={className} role={title ? 'img' : undefined}>
-      {title ? <title>{title}</title> : null}
-      <path d="M6.5 16.5h11" />
-      <path d="M7.2 16.5V11a4.8 4.8 0 0 1 9.6 0v5.5" />
-      <path d="M10.2 16.5a1.8 1.8 0 0 0 3.6 0" />
-      <path d="M12 4.2v1.4" />
-    </svg>
-  )
-}
-
 export function IconShare({ className, title }: IconProps) {
   return (
     <svg {...base} className={className} role={title ? 'img' : undefined}>

@@ -104,23 +104,22 @@ export function QrShareDialog({ open, reduce, onClose }: QrShareDialogProps) {
             transition={{ duration, ease: open ? EASE : EASE_OUT }}
             style={{ originX: 0.5, originY: 1 }}
           >
+            <button
+              ref={closeRef}
+              type="button"
+              className={styles.close}
+              aria-label="Cerrar código QR"
+              onClick={onClose}
+            >
+              <IconClose />
+            </button>
             <div className={styles.stageWrap}>
-              <button
-                ref={closeRef}
-                type="button"
-                className={styles.close}
-                aria-label="Cerrar código QR"
-                onClick={onClose}
-              >
-                <IconClose />
-              </button>
               <div className={styles.qrStage}>
                 <BrandedQr
                   value={HOME_URL}
                   label="Código QR hacia el inicio de calendario tech"
                 />
               </div>
-              <span className="sr-only">{HOME_URL}</span>
             </div>
           </motion.div>
         </>

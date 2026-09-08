@@ -14,12 +14,8 @@
   margin-inline: 0;
 }
 
-.splash {
-  width: 100%;
-}
-
 .footer {
-  width: clamp(8rem, 20vw, 11rem);
+  width: clamp(8rem, 22vw, 10.5rem);
 }
 
 @media (max-width: 768px) {
@@ -28,6 +24,6 @@
   }
 
   .footer {
-    width: 9rem;
+    width: 8.25rem;
   }
 }

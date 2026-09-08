@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import QRCode from 'qrcode'
 import styles from './BrandedQr.module.css'
 
-const ACCENT = '#e60000'
-const MODULE = '#ffffff'
+const ACCENT = '#c40000'
+const MODULE = '#141414'
 const LOGO_RATIO = 1038 / 623
 
 type BrandedQrProps = {
@@ -115,7 +115,7 @@ export function BrandedQr({
         height={holeH + 0.9}
         rx={holeH * 0.48}
         ry={holeH * 0.48}
-        fill="#000"
+        fill="#f7f7f5"
       />
 
       <image

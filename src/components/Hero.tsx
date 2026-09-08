@@ -1,40 +1,39 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { Logo } from './brand/Logo'
-import { Spotlight } from './ui/Spotlight'
 import { BlurText } from './ui/BlurText'
 import { SupportersMarquee } from './SupportersMarquee'
-import { useBrandChrome } from '../hooks/brandChrome'
+import { GradientWaves } from './ui/GradientWaves'
 import styles from './Hero.module.css'
 
 export function Hero() {
   const reduce = useReducedMotion()
-  const { compact, intro, logoLanded, logoSlotRef } = useBrandChrome()
-  const showLogo = !compact && logoLanded
-  const showCopy = !intro
 
   return (
     <section id="top" className={styles.hero} aria-labelledby="hero-heading">
-      <div className={styles.grid} aria-hidden="true" />
-      <Spotlight fill="#ff002a" />
-
-      <div className={`container ${styles.inner}`}>
-        <div className={styles.logoWrap} ref={logoSlotRef}>
-          {showLogo ? (
-            <div className={styles.logoMotion}>
-              <Logo size="hero" shared={!reduce} />
-            </div>
-          ) : (
-            <div className={styles.logoSpacer} aria-hidden="true" />
-          )}
-        </div>
-
+      <div className={styles.waves}>
+        <GradientWaves
+          horizonColor="#f7f7f5"
+          waveColor="#ffc6c2"
+          crestColor="#f0a8a4"
+          opacity={1}
+          brightness={1.04}
+          fogDepth={38}
+          amplitude={2.4}
+          waveScale={0.78}
+          swell={24}
+          grain={false}
+          mouseInteraction={false}
+          detail="low"
+          speed={0.16}
+        />
+      </div>
+      <div className={styles.inner}>
         <BlurText
           id="hero-heading"
           className={styles.headline}
           delay={0.04}
-          play={showCopy}
           segments={[
-            { text: 'Todos los eventos tech de Mendoza,' },
+            { text: 'Todos los eventos tech', breakAfter: true },
+            { text: 'de Mendoza,', breakAfter: true },
             { text: 'en un solo calendario.', accent: true },
           ]}
         />
@@ -42,9 +41,7 @@ export function Hero() {
         <motion.p
           className={styles.lead}
           initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={
-            showCopy ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }
-          }
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
           El punto de encuentro para conectar, compartir y potenciar el
@@ -54,12 +51,10 @@ export function Hero() {
         <motion.div
           className={`btn-row ${styles.actions}`}
           initial={reduce ? false : { opacity: 0, y: 10 }}
-          animate={
-            showCopy ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
-          }
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <a className="btn btn--primary" href="#sumar">
+          <a className="btn btn--primary btn--lg" href="#sumar">
             Sumá tu evento
           </a>
         </motion.div>
@@ -68,12 +63,10 @@ export function Hero() {
       <motion.div
         className={styles.supporters}
         initial={reduce ? false : { opacity: 0, y: 16 }}
-        animate={
-          showCopy ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }
-        }
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
       >
-        <SupportersMarquee active={showCopy} />
+        <SupportersMarquee />
       </motion.div>
     </section>
   )

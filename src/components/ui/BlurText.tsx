@@ -1,9 +1,11 @@
+import { Fragment } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import styles from './BlurText.module.css'
 
 type Segment = {
   text: string
   accent?: boolean
+  breakAfter?: boolean
 }
 
 type BlurTextProps = {
@@ -37,26 +39,30 @@ export function BlurText({
           const isLastOverall =
             sIdx === segments.length - 1 && isLastInSegment
           return (
-            <motion.span
-              key={`${sIdx}-${wIdx}-${word}`}
-              className={`${styles.word} ${segment.accent ? styles.accent : ''}`.trim()}
-              initial={
-                reduce ? false : { opacity: 0, filter: 'blur(10px)', y: 10 }
-              }
-              animate={
-                reveal
-                  ? { opacity: 1, filter: 'blur(0px)', y: 0 }
-                  : { opacity: 0, filter: 'blur(10px)', y: 10 }
-              }
-              transition={{
-                duration: 0.32,
-                delay: reduce ? 0 : play ? delay + i * 0.022 : 0,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              {word}
-              {!isLastOverall ? '\u00A0' : ''}
-            </motion.span>
+            <Fragment key={`${sIdx}-${wIdx}-${word}`}>
+              <motion.span
+                className={`${styles.word} ${segment.accent ? styles.accent : ''}`.trim()}
+                initial={
+                  reduce ? false : { opacity: 0, filter: 'blur(10px)', y: 10 }
+                }
+                animate={
+                  reveal
+                    ? { opacity: 1, filter: 'blur(0px)', y: 0 }
+                    : { opacity: 0, filter: 'blur(10px)', y: 10 }
+                }
+                transition={{
+                  duration: 0.32,
+                  delay: reduce ? 0 : play ? delay + i * 0.022 : 0,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                {word}
+                {!isLastOverall && !(isLastInSegment && segment.breakAfter)
+                  ? '\u00A0'
+                  : null}
+              </motion.span>
+              {isLastInSegment && segment.breakAfter ? <br /> : null}
+            </Fragment>
           )
         })
       })}

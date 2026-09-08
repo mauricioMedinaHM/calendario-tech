@@ -1,9 +1,7 @@
 .section {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(230, 0, 0, 0.07), transparent 70%),
-    var(--color-bg);
+  background: var(--color-bg);
 }
 
 .stage {
@@ -47,66 +45,49 @@
     linear-gradient(to right, var(--color-bg) 0%, transparent 2%, transparent 98%, var(--color-bg) 100%);
 }
 
-.heading {
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
+.title {
   margin: 0 0 var(--space-3);
 }
 
-.title {
-  margin: 0;
-}
-
-.lumaLink {
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  width: 2.75rem;
-  height: 2.75rem;
-  margin-top: 0.12em;
-  color: var(--color-accent);
+.titleLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: inherit;
   text-decoration: none;
 }
 
-.lumaLink :global(svg) {
-  width: 1.35rem;
-  height: 1.35rem;
+.titleText {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 0.1em;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.18em;
 }
 
-.lumaLink:hover {
-  color: #ff1a1a;
+.titleLink:hover {
+  color: var(--color-accent);
 }
 
-.lumaLink:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
+.titleLink :global(svg) {
+  width: 0.85em;
+  height: 0.85em;
+  flex: 0 0 auto;
+  color: var(--color-accent);
 }
 
 .lead {
   max-width: 36rem;
 }
 
-.mobilePanel {
-  display: grid;
-  justify-items: stretch;
-  gap: var(--space-4);
-}
-
-.mobileCta {
-  width: 100%;
-  min-height: 3rem;
-}
-
 @media (max-width: 768px) {
-  .heading {
-    justify-content: center;
+  .lead {
+    margin-bottom: var(--space-4);
   }
 
-  .section :global(.section__title),
-  .lead {
-    text-align: center;
-    margin-inline: auto;
+  .frame {
+    min-height: 22rem;
+    height: min(26rem, 58svh);
   }
 }
 

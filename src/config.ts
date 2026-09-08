@@ -9,7 +9,7 @@ export const LUMA_CALENDAR_URL =
 
 export const LUMA_EMBED_URL =
   import.meta.env.VITE_LUMA_EMBED_URL ??
-  'https://luma.com/embed/calendar/cal-LHE9L5W4OFih7Fc/events?lt=dark'
+    'https://luma.com/embed/calendar/cal-LHE9L5W4OFih7Fc/events?lt=light'
 
 export const GOOGLE_FORM_URL =
   import.meta.env.VITE_GOOGLE_FORM_URL ??

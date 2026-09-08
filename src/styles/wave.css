@@ -9,8 +9,8 @@
   inset: 10% 5%;
   background: radial-gradient(
     ellipse at center,
-    rgba(230, 0, 0, 0.28) 0%,
-    rgba(230, 0, 0, 0.08) 42%,
+    rgba(196, 0, 0, 0.14) 0%,
+    rgba(196, 0, 0, 0.05) 42%,
     transparent 72%
   );
   filter: blur(28px);
@@ -55,8 +55,8 @@
   filter: blur(42px);
   background: radial-gradient(
     ellipse 90% 70% at 50% 85%,
-    rgba(230, 0, 0, 0.55) 0%,
-    rgba(230, 0, 0, 0.2) 40%,
+    rgba(196, 0, 0, 0.22) 0%,
+    rgba(196, 0, 0, 0.08) 40%,
     transparent 72%
   );
 }
@@ -106,7 +106,7 @@
 .wave-atmosphere--footer .wave-atmosphere__layer--front span {
   filter: none;
   opacity: 0.95;
-  box-shadow: 0 0 18px rgba(230, 0, 0, 0.35);
+  box-shadow: 0 0 18px rgba(196, 0, 0, 0.18);
 }
 
 @media (max-width: 768px) {

@@ -14,6 +14,7 @@ export function Marquee({
   children,
   className = '',
   reverse = false,
+  pauseOnHover = false,
   repeat = 4,
   durationSec = 32,
 }: MarqueeProps) {
@@ -93,6 +94,7 @@ export function Marquee({
   return (
     <div
       className={[styles.root, className].filter(Boolean).join(' ')}
+      data-pause-hover={pauseOnHover || undefined}
       style={vars}
       aria-label="Deslizá para ver las marcas"
       onPointerDown={onPointerDown}
