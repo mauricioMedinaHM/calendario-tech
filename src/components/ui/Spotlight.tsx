@@ -8,7 +8,7 @@ type SpotlightProps = {
 /** Aceternity Spotlight — ray of light, adapted to CSS modules (no Tailwind). */
 export function Spotlight({
   className = '',
-  fill = '#ff002a',
+  fill = '#f98b06',
 }: SpotlightProps) {
   return (
     <svg

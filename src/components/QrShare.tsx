@@ -1,7 +1,7 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { BrandedQr } from './BrandedQr'
-import { IconQr } from './icons/Icons'
+import { IconClose, IconQr } from './icons/Icons'
 import { SITE_URL } from '../config'
 import styles from './QrShare.module.css'
 
@@ -49,12 +49,12 @@ type QrShareDialogProps = {
 }
 
 export function QrShareDialog({ open, reduce, onClose }: QrShareDialogProps) {
-  const dialogRef = useRef<HTMLDivElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
   const duration = reduce ? 0 : 0.32
 
   useEffect(() => {
     if (!open) return
-    dialogRef.current?.focus()
+    closeRef.current?.focus()
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
@@ -93,19 +93,26 @@ export function QrShareDialog({ open, reduce, onClose }: QrShareDialogProps) {
             onClick={onClose}
           />
           <motion.div
-            ref={dialogRef}
             key="qr-screen"
             className={styles.screen}
             role="dialog"
             aria-modal="true"
             aria-label="Código QR de calendario tech"
-            tabIndex={-1}
             initial={reduce ? false : { opacity: 0, transform: 'translateY(12px) scale(0.96)' }}
             animate={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
             exit={{ opacity: 0, transform: 'translateY(8px) scale(0.97)' }}
             transition={{ duration, ease: open ? EASE : EASE_OUT }}
             style={{ originX: 0.5, originY: 1 }}
           >
+            <button
+              ref={closeRef}
+              type="button"
+              className={styles.close}
+              aria-label="Cerrar código QR"
+              onClick={onClose}
+            >
+              <IconClose />
+            </button>
             <div className={styles.stageWrap}>
               <div className={styles.qrStage}>
                 <BrandedQr

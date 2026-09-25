@@ -2,10 +2,6 @@
   display: block;
 }
 
-.segment {
-  display: inline;
-}
-
 .word {
   display: inline-block;
   will-change: filter, opacity, transform;
