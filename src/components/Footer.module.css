@@ -1,14 +1,14 @@
 .footer {
-  --footer-ink: #f3eee8;
-  --footer-muted: rgba(243, 238, 232, 0.62);
+  --footer-ink: #141414;
+  --footer-muted: #4a4a4a;
   position: relative;
   isolation: isolate;
   overflow: hidden;
   padding-block: var(--space-7) var(--space-4);
   color: var(--footer-ink);
   background:
-    radial-gradient(90% 70% at 50% -10%, rgba(110, 36, 28, 0.42), transparent 52%),
-    #1a1612;
+    radial-gradient(90% 70% at 50% -10%, rgba(249, 139, 6, 0.22), transparent 52%),
+    #f7f7f5;
 }
 
 .footer::before {
@@ -29,8 +29,8 @@
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 50% 120%, rgba(0, 0, 0, 0.5), transparent 58%),
-    linear-gradient(180deg, rgba(255, 236, 214, 0.07), transparent 30%, transparent 70%, rgba(0, 0, 0, 0.35));
+    radial-gradient(ellipse at 50% 120%, rgba(249, 139, 6, 0.12), transparent 58%),
+    linear-gradient(180deg, rgba(249, 139, 6, 0.06), transparent 40%);
 }
 
 .inner,
@@ -123,7 +123,7 @@
   justify-content: space-between;
   gap: 0.35rem 1rem;
   padding-top: var(--space-4);
-  border-top: 1px solid rgba(243, 238, 232, 0.12);
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
   color: var(--footer-muted);
   font-size: var(--text-xs);
 }

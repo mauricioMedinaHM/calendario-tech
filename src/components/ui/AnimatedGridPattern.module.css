@@ -5,7 +5,7 @@
   z-index: 0;
   height: 118%;
   overflow: hidden;
-  color: rgba(196, 0, 0, 0.16);
+  color: rgba(249, 139, 6, 0.32);
   transform: skewY(-8deg);
   mask-image: radial-gradient(ellipse 58% 52% at 50% 36%, #000 8%, transparent 72%);
   -webkit-mask-image: radial-gradient(

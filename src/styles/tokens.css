@@ -3,11 +3,12 @@
   --color-surface: #f0f0ee;
   --color-fg: #141414;
   --color-muted: #4a4a4a;
-  --color-accent: #c40000;
-  --color-accent-deep: #ffb3b3;
-  --color-on-accent: #f7f7f5;
+  --color-accent: #f98b06;
+  --color-accent-bright: #f98b06;
+  --color-accent-deep: #ffe0b8;
+  --color-on-accent: #141414;
   --color-line: rgba(20, 20, 20, 0.12);
-  --color-line-accent: rgba(196, 0, 0, 0.28);
+  --color-line-accent: rgba(249, 139, 6, 0.4);
   --color-nav: rgba(247, 247, 245, 0.82);
   --color-grid: rgba(20, 20, 20, 0.08);
   --color-shadow: rgba(20, 20, 20, 0.08);
@@ -194,12 +195,12 @@ button {
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: var(--color-accent-bright);
   color: var(--color-on-accent);
 }
 
 .btn--primary:hover {
-  background: #a80000;
+  background: #e07c05;
   color: var(--color-on-accent);
 }
 
@@ -309,7 +310,7 @@ button {
 
 @media (hover: none) {
   .btn--primary:active {
-    background: #a80000;
+    background: #e07c05;
   }
 
   .btn--ghost:active {

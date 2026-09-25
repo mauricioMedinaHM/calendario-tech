@@ -160,7 +160,7 @@ void main() {
 
 export function GradientWaves({
   horizonColor = '#f7f7f5',
-  waveColor = '#c40000',
+  waveColor = '#f98b06',
   crestColor = '#141414',
   speed = 0.4,
   amplitude = 2.5,

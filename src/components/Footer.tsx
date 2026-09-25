@@ -25,7 +25,7 @@ export function Footer({ onOpenQr }: FooterProps) {
             className={styles.brand}
             aria-label="calendario tech — inicio"
           >
-            <Logo size="footer" variant="original" />
+            <Logo size="footer" />
           </a>
           <p className={styles.tagline}>
             El calendario de eventos tech de Mendoza. Un solo lugar para

@@ -12,8 +12,8 @@ export function Hero() {
       <div className={styles.waves}>
         <GradientWaves
           horizonColor="#f7f7f5"
-          waveColor="#ffc6c2"
-          crestColor="#f0a8a4"
+          waveColor="#ffd09a"
+          crestColor="#f98b06"
           opacity={1}
           brightness={1.04}
           fogDepth={38}

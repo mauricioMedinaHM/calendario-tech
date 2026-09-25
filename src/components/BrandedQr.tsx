@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import QRCode from 'qrcode'
 import styles from './BrandedQr.module.css'
 
-const ACCENT = '#c40000'
+const ACCENT = '#f98b06'
 const MODULE = '#141414'
 const LOGO_RATIO = 1038 / 623
 
