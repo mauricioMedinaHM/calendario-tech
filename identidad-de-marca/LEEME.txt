@@ -1,0 +1,37 @@
+IDENTIDAD DE MARCA · calendario tech
+
+Color principal: naranja #F98B06
+Fondo: blanco #FFFFFF
+Texto del logo: negro #141414
+
+LOGOS
+logos/logo-transparente-*.png
+  Logo sin fondo. Para usar sobre blanco o sobre fotos claras.
+  Tamaños: 1600, 1024, 512, 256, 128 y 64 px de ancho.
+
+logos/logo-sobre-blanco-*.png
+  El mismo logo ya compuesto sobre blanco.
+
+logos/logo-sobre-naranja-*.png
+  El mismo logo compuesto sobre el naranja de marca.
+  El interior transparente deja ver el naranja.
+
+BANNERS
+banners/banner-horizontal-1920x640.png
+  Para portadas, encabezados y piezas apaisadas.
+
+banners/banner-vertical-1080x1920.png
+  Para historias y piezas de celular.
+
+banners/banner-luma-2100x600.png
+  Portada del calendario en Luma. Sin logo: fondo blanco y cordillera
+  de barras naranjas. La esquina inferior izquierda queda libre porque
+  Luma pone ahí el avatar del calendario.
+
+hoja-de-marca.png
+  Lámina con el logo y los colores, para compartir la identidad.
+
+USO
+No deformar el logo. No cambiar el naranja ni pasar las letras a otro color.
+Dejar aire alrededor del logo: al menos la altura de la letra «c».
+Sobre fotos, usar la versión transparente solo si el fondo queda claro detrás del texto negro.

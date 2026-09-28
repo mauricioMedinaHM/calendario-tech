@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useReducedMotion } from 'motion/react'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
+import { CuyoTechWeekBanner } from './components/CuyoTechWeekBanner'
 import { LumaEmbed } from './components/LumaEmbed'
 import { Community } from './components/Community'
 import { Footer } from './components/Footer'
@@ -33,6 +34,7 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <CuyoTechWeekBanner />
         <LumaEmbed />
         <Community />
       </main>
