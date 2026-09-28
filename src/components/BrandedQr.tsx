@@ -119,7 +119,7 @@ export function BrandedQr({
       />
 
       <image
-        href="/logo-calendario-tech.png"
+        href="/brand/calendario-tech-logo.png"
         x={quiet + holeX0}
         y={quiet + holeY0}
         width={holeW}
